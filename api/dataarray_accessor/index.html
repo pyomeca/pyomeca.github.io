@@ -51,7 +51,11 @@
 <span class=n>band_pass</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"band-pass @ 10-200Hz"</span><span class=p>)</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=band_pass src=/images/api/band_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>507
+</code></pre> </div> <p><img alt=band_pass src=/images/api/band_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>503
+504
+505
+506
+507
 508
 509
 510
@@ -83,11 +87,7 @@
 536
 537
 538
-539
-540
-541
-542
-543</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>band_pass</span><span class=p>(</span>
+539</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>band_pass</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>order</span><span class=p>:</span> <span class=nb>int</span><span class=p>,</span> <span class=n>cutoff</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>]</span>
 <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
@@ -138,7 +138,11 @@
 <span class=n>band_stop</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"band-stop @ 40-60Hz"</span><span class=p>)</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=band_stop src=/images/api/band_stop.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>469
+</code></pre> </div> <p><img alt=band_stop src=/images/api/band_stop.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>465
+466
+467
+468
+469
 470
 471
 472
@@ -170,11 +174,7 @@
 498
 499
 500
-501
-502
-503
-504
-505</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>band_stop</span><span class=p>(</span>
+501</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>band_stop</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>order</span><span class=p>:</span> <span class=nb>int</span><span class=p>,</span> <span class=n>cutoff</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>]</span>
 <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
@@ -224,7 +224,11 @@
 <span class=n>centered</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"centered"</span><span class=p>)</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=center src=/images/api/center.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>237
+</code></pre> </div> <p><img alt=center src=/images/api/center.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>233
+234
+235
+236
+237
 238
 239
 240
@@ -260,11 +264,7 @@
 270
 271
 272
-273
-274
-275
-276
-277</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>center</span><span class=p>(</span>
+273</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>center</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span> <span class=n>mu</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>,</span> <span class=nb>float</span><span class=p>,</span> <span class=nb>int</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span>
 <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
@@ -330,7 +330,11 @@
     <span class=n>plt</span><span class=o>.</span><span class=n>axvline</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>end</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s2>"r"</span><span class=p>)</span>
 
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=detect_onset src=/images/api/detect_onset.svg></p> </div> <div class="admonition warning"> <p class=admonition-title>Warning</p> <p><code>detect_onset</code> works only for 1-dimensional data. For example, you can select a dimension using <code>analogs.sel(channel='EMG1')</code> or <code>analogs.isel(channel=0)</code>.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>599
+</code></pre> </div> <p><img alt=detect_onset src=/images/api/detect_onset.svg></p> </div> <div class="admonition warning"> <p class=admonition-title>Warning</p> <p><code>detect_onset</code> works only for 1-dimensional data. For example, you can select a dimension using <code>analogs.sel(channel='EMG1')</code> or <code>analogs.isel(channel=0)</code>.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>595
+596
+597
+598
+599
 600
 601
 602
@@ -392,11 +396,7 @@
 658
 659
 660
-661
-662
-663
-664
-665</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>detect_onset</span><span class=p>(</span>
+661</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>detect_onset</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span>
     <span class=n>threshold</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>float</span><span class=p>,</span> <span class=nb>int</span><span class=p>],</span>
     <span class=n>n_above</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span><span class=p>,</span>
@@ -493,7 +493,11 @@
 
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=detect_outliers src=/images/api/detect_outliers.svg></p> </div> <div class="admonition note"> <p class=admonition-title>Note</p> <p><code>detect_outliers</code> is not limited on one-dimensional data and can detect outliers for any number of dimensions.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>667
+</code></pre> </div> <p><img alt=detect_outliers src=/images/api/detect_outliers.svg></p> </div> <div class="admonition note"> <p class=admonition-title>Note</p> <p><code>detect_outliers</code> is not limited on one-dimensional data and can detect outliers for any number of dimensions.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>663
+664
+665
+666
+667
 668
 669
 670
@@ -546,11 +550,7 @@
 717
 718
 719
-720
-721
-722
-723
-724</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>detect_outliers</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>threshold</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>3</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+720</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>detect_outliers</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>threshold</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>3</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Detects data points that are `threshold` times the standard deviation from the mean.</span>
 
@@ -640,7 +640,11 @@
 
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=fft src=/images/api/fft.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>546
+</code></pre> </div> <p><img alt=fft src=/images/api/fft.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>542
+543
+544
+545
+546
 547
 548
 549
@@ -687,11 +691,7 @@
 590
 591
 592
-593
-594
-595
-596
-597</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>fft</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>only_positive</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+593</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>fft</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>only_positive</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Performs a discrete Fourier Transform and return a DataArray with the corresponding amplitudes and frequencies.</span>
 
@@ -757,7 +757,11 @@
 <span class=n>high_pass</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"high-pass @ 100Hz"</span><span class=p>)</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=high_pass src=/images/api/high_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>431
+</code></pre> </div> <p><img alt=high_pass src=/images/api/high_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>427
+428
+429
+430
+431
 432
 433
 434
@@ -789,11 +793,7 @@
 460
 461
 462
-463
-464
-465
-466
-467</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>high_pass</span><span class=p>(</span>
+463</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>high_pass</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>order</span><span class=p>:</span> <span class=nb>int</span><span class=p>,</span> <span class=n>cutoff</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>]</span>
 <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
@@ -850,7 +850,11 @@
 <span class=n>low_pass</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"low-pass @ 5Hz"</span><span class=p>)</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre> </div> <p><img alt=low_pass src=/images/api/low_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>382
+</code></pre> </div> <p><img alt=low_pass src=/images/api/low_pass.svg></p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>378
+379
+380
+381
+382
 383
 384
 385
@@ -893,11 +897,7 @@
 422
 423
 424
-425
-426
-427
-428
-429</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>low_pass</span><span class=p>(</span>
+425</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>low_pass</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span> <span class=n>freq</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>],</span> <span class=n>order</span><span class=p>:</span> <span class=nb>int</span><span class=p>,</span> <span class=n>cutoff</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>]</span>
 <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
@@ -1013,7 +1013,11 @@
 
 <span class=n>markers</span> <span class=o>=</span> <span class=n>Markers</span><span class=o>.</span><span class=n>from_random_data</span><span class=p>()</span>
 <span class=n>markers</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>dim</span><span class=o>=</span><span class=s2>"axis"</span><span class=p>)</span>
-</code></pre> </div> </div> <div class="admonition note"> <p class=admonition-title>Note</p> <p>If the array contains an <code>"axis"</code> dimension with a <code>"ones"</code> coordinate (e.g., the object was created using <code>pyomeca.Markers</code>), this coordinate is ignored.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>189
+</code></pre> </div> </div> <div class="admonition note"> <p class=admonition-title>Note</p> <p>If the array contains an <code>"axis"</code> dimension with a <code>"ones"</code> coordinate (e.g., the object was created using <code>pyomeca.Markers</code>), this coordinate is ignored.</p> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>185
+186
+187
+188
+189
 190
 191
 192
@@ -1036,11 +1040,7 @@
 209
 210
 211
-212
-213
-214
-215
-216</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>norm</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>dim</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>list</span><span class=p>],</span> <span class=nb>ord</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+212</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>norm</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>dim</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>list</span><span class=p>],</span> <span class=nb>ord</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Return the norm of an array.</span>
 
@@ -1078,7 +1078,11 @@
 <span class=n>normalized</span><span class=o>.</span><span class=n>plot</span><span class=p>()</span>
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
 </code></pre> </div> <p><img alt=normalize src=/images/api/normalize.svg></p> <p>By default, this function normalize against the signal's max. To specify any other value, use the <code>ref</code> parameter:</p> <div class=highlight> <pre><span></span><code><span class=n>normalized</span> <span class=o>=</span> <span class=n>analogs</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>normalize</span><span class=p>(</span><span class=n>ref</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>279
+</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>275
+276
+277
+278
+279
 280
 281
 282
@@ -1113,11 +1117,7 @@
 311
 312
 313
-314
-315
-316
-317
-318</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>normalize</span><span class=p>(</span>
+314</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>normalize</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span>
     <span class=n>ref</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>,</span> <span class=nb>float</span><span class=p>,</span> <span class=nb>int</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
     <span class=n>scale</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span>
@@ -1161,7 +1161,11 @@
 
 <span class=n>analogs</span> <span class=o>=</span> <span class=n>Analogs</span><span class=o>.</span><span class=n>from_random_data</span><span class=p>()</span>
 <span class=n>analogs</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>rms</span><span class=p>()</span>
-</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>218
+</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>214
+215
+216
+217
+218
 219
 220
 221
@@ -1174,11 +1178,7 @@
 228
 229
 230
-231
-232
-233
-234
-235</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>rms</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+231</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>rms</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Return the root-mean-square of an array.</span>
 
@@ -1196,11 +1196,13 @@
 <span class=sd>        ```</span>
 <span class=sd>    """</span>
     <span class=k>return</span> <span class=n>algebra</span><span class=o>.</span><span class=n>rms</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_obj</span><span class=p>)</span>
-</code></pre> </div> </td> </tr> </table> </details> </div> </div> <div class="doc doc-object doc-method"> <h3 class="doc doc-heading" id=pyomeca.dataarray_accessor.DataArrayAccessor.sqrt> <code class="highlight language-python"> sqrt<span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> </code> </h3> <div class="doc doc-contents"> <p>Return the non-negative square-root of an array, element-wise.</p> <p><strong>Parameters:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Description</th> <th>Default</th> </tr> </thead> <tbody> <tr> <td><code>args</code></td> <td><code></code></td> <td> <p>For other positional arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html>numpy docs</a></p> </td> <td><code>()</code></td> </tr> <tr> <td><code>kwargs</code></td> <td><code></code></td> <td> <p>For other keyword-only arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html>numpy docs</a></p> </td> <td><code>{}</code></td> </tr> </tbody> </table> <p><strong>Returns:</strong></p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>DataArray</code></td> <td> <p>A <code>xarray.DataArray</code> containing the square root of the matrix.</p> </td> </tr> </tbody> </table> <div class="admonition example"> <p class=admonition-title>Example</p> <p>To compute the non-negative square-root of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p> <div class=highlight> <pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
+</code></pre> </div> </td> </tr> </table> </details> </div> </div> <div class="doc doc-object doc-method"> <h3 class="doc doc-heading" id=pyomeca.dataarray_accessor.DataArrayAccessor.sqrt> <code class="highlight language-python"> sqrt<span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> </code> </h3> <div class="doc doc-contents"> <p>Return the non-negative square-root of an array, element-wise.</p> <p><strong>Parameters:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Description</th> <th>Default</th> </tr> </thead> <tbody> <tr> <td><code>kwargs</code></td> <td><code></code></td> <td> <p>For other keyword-only arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html>numpy docs</a></p> </td> <td><code>{}</code></td> </tr> </tbody> </table> <p><strong>Returns:</strong></p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>DataArray</code></td> <td> <p>A <code>xarray.DataArray</code> containing the square root of the matrix.</p> </td> </tr> </tbody> </table> <div class="admonition example"> <p class=admonition-title>Example</p> <p>To compute the non-negative square-root of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p> <div class=highlight> <pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
 
 <span class=n>analogs</span> <span class=o>=</span> <span class=n>Analogs</span><span class=o>.</span><span class=n>from_random_data</span><span class=p>()</span>
 <span class=n>analogs</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>sqrt</span><span class=p>()</span>
-</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>163
+</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>161
+162
+163
 164
 165
 166
@@ -1220,17 +1222,11 @@
 180
 181
 182
-183
-184
-185
-186
-187</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>sqrt</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+183</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>sqrt</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Return the non-negative square-root of an array, element-wise.</span>
 
 <span class=sd>    Arguments:</span>
-<span class=sd>        args: For other positional arguments,</span>
-<span class=sd>            see the [numpy docs](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html)</span>
 <span class=sd>        kwargs: For other keyword-only arguments,</span>
 <span class=sd>            see the [numpy docs](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html)</span>
 
@@ -1248,8 +1244,8 @@
 <span class=sd>        analogs.meca.sqrt()</span>
 <span class=sd>        ```</span>
 <span class=sd>    """</span>
-    <span class=k>return</span> <span class=n>algebra</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_obj</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
-</code></pre> </div> </td> </tr> </table> </details> </div> </div> <div class="doc doc-object doc-method"> <h3 class="doc doc-heading" id=pyomeca.dataarray_accessor.DataArrayAccessor.square> <code class="highlight language-python"> square<span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> </code> </h3> <div class="doc doc-contents"> <p>Return the element-wise square of the input.</p> <p><strong>Parameters:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Description</th> <th>Default</th> </tr> </thead> <tbody> <tr> <td><code>args</code></td> <td><code></code></td> <td> <p>For other positional arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.square.html>numpy docs</a></p> </td> <td><code>()</code></td> </tr> <tr> <td><code>kwargs</code></td> <td><code></code></td> <td> <p>For other keyword-only arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.square.html>numpy docs</a></p> </td> <td><code>{}</code></td> </tr> </tbody> </table> <p><strong>Returns:</strong></p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>DataArray</code></td> <td> <p>A <code>xarray.DataArray</code> containing the matrix squared.</p> </td> </tr> </tbody> </table> <div class="admonition example"> <p class=admonition-title>Example</p> <p>To compute the element-wise square of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p> <div class=highlight> <pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
+    <span class=k>return</span> <span class=n>algebra</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_obj</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</code></pre> </div> </td> </tr> </table> </details> </div> </div> <div class="doc doc-object doc-method"> <h3 class="doc doc-heading" id=pyomeca.dataarray_accessor.DataArrayAccessor.square> <code class="highlight language-python"> square<span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> </code> </h3> <div class="doc doc-contents"> <p>Return the element-wise square of the input.</p> <p><strong>Parameters:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Description</th> <th>Default</th> </tr> </thead> <tbody> <tr> <td><code>kwargs</code></td> <td><code></code></td> <td> <p>For other keyword-only arguments, see the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.square.html>numpy docs</a></p> </td> <td><code>{}</code></td> </tr> </tbody> </table> <p><strong>Returns:</strong></p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>DataArray</code></td> <td> <p>A <code>xarray.DataArray</code> containing the matrix squared.</p> </td> </tr> </tbody> </table> <div class="admonition example"> <p class=admonition-title>Example</p> <p>To compute the element-wise square of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p> <div class=highlight> <pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
 
 <span class=n>analogs</span> <span class=o>=</span> <span class=n>Analogs</span><span class=o>.</span><span class=n>from_random_data</span><span class=p>()</span>
 <span class=n>analogs</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>square</span><span class=p>()</span>
@@ -1274,15 +1270,11 @@
 156
 157
 158
-159
-160
-161</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>square</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
+159</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>square</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>:</span>
     <span class=sd>"""</span>
 <span class=sd>    Return the element-wise square of the input.</span>
 
 <span class=sd>    Arguments:</span>
-<span class=sd>        args: For other positional arguments,</span>
-<span class=sd>            see the [numpy docs](https://docs.scipy.org/doc/numpy/reference/generated/numpy.square.html)</span>
 <span class=sd>        kwargs: For other keyword-only arguments,</span>
 <span class=sd>            see the [numpy docs](https://docs.scipy.org/doc/numpy/reference/generated/numpy.square.html)</span>
 
@@ -1299,7 +1291,7 @@
 <span class=sd>        analogs.meca.square()</span>
 <span class=sd>        ```</span>
 <span class=sd>    """</span>
-    <span class=k>return</span> <span class=n>algebra</span><span class=o>.</span><span class=n>square</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_obj</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>algebra</span><span class=o>.</span><span class=n>square</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_obj</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
 </code></pre> </div> </td> </tr> </table> </details> </div> </div> <div class="doc doc-object doc-method"> <h3 class="doc doc-heading" id=pyomeca.dataarray_accessor.DataArrayAccessor.time_normalize> <code class="highlight language-python"> time_normalize<span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>time_vector</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>n_frames</span><span class=o>=</span><span class=mi>100</span><span class=p>,</span> <span class=n>norm_time</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span> </code> </h3> <div class="doc doc-contents"> <p>Time normalization used for temporal alignment of data.</p> <p><strong>Parameters:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Description</th> <th>Default</th> </tr> </thead> <tbody> <tr> <td><code>time_vector</code></td> <td><code>Union[xarray.core.dataarray.DataArray, &lt;built-in function array&gt;]</code></td> <td> <p>desired time vector (first to last time with n_frames points by default)</p> </td> <td><code>None</code></td> </tr> <tr> <td><code>n_frames</code></td> <td><code>int</code></td> <td> <p>if time_vector is not specified, the length of the desired time vector</p> </td> <td><code>100</code></td> </tr> <tr> <td><code>norm_time</code></td> <td><code>bool</code></td> <td> <p>Normalize the time dimension from 0 to 100 if True</p> </td> <td><code>False</code></td> </tr> </tbody> </table> <p><strong>Returns:</strong></p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>DataArray</code></td> <td> <p>A time-normalized <code>xarray.DataArray</code></p> </td> </tr> </tbody> </table> <div class="admonition example"> <p class=admonition-title>Example</p> <p>To time-normalize any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p> <div class=highlight> <pre><span></span><code><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
 
 <span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
@@ -1315,7 +1307,11 @@
 </code></pre> </div> <p>You can also specify the desired time_vector directly in the <code>time_vector</code> parameter:</p> <div class=highlight> <pre><span></span><code><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
 
 <span class=n>time_normalized</span> <span class=o>=</span> <span class=n>analogs</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>time_normalize</span><span class=p>(</span><span class=n>time_vector</span><span class=o>=</span><span class=n>np</span><span class=o>.</span><span class=n>linspace</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>200</span><span class=p>,</span> <span class=mi>300</span><span class=p>))</span>
-</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>321
+</code></pre> </div> </div> <details class=quote> <summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary> <table class=highlighttable> <tr> <td class=linenos> <div class=linenodiv> <pre><span></span>317
+318
+319
+320
+321
 322
 323
 324
@@ -1369,11 +1365,7 @@
 372
 373
 374
-375
-376
-377
-378
-379</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>time_normalize</span><span class=p>(</span>
+375</pre> </div> </td> <td class=code> <div class=highlight> <pre><span></span><code><span class=k>def</span> <span class=nf>time_normalize</span><span class=p>(</span>
     <span class=bp>self</span><span class=p>,</span>
     <span class=n>time_vector</span><span class=p>:</span> <span class=n>Union</span><span class=p>[</span><span class=n>xr</span><span class=o>.</span><span class=n>DataArray</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
     <span class=n>n_frames</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span>
