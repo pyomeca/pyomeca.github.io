@@ -1,0 +1,922 @@
+<!DOCTYPE html><html class=no-js lang=en> <head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="An Open-Source Framework for Biomechanical Analysis" name=description><link href=https://pyomeca.github.io/getting-started/ rel=canonical><meta content="Romain Martinez" name=author><link href=../images/favicon.ico rel="shortcut icon"><meta content="mkdocs-1.1.2, mkdocs-material-5.3.3" name=generator><title>Getting Started - Pyomeca</title><link href=../assets/stylesheets/main.fe0cca5b.min.css rel=stylesheet><link href=../assets/stylesheets/palette.a46bcfb3.min.css rel=stylesheet><meta content=#546e7a name=theme-color><link crossorigin href=https://fonts.gstatic.com rel=preconnect><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback" rel=stylesheet><style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style><link href=../custom.css rel=stylesheet></head> <body data-md-color-accent=teal data-md-color-primary=blue-grey data-md-color-scheme dir=ltr> <input autocomplete=off class=md-toggle data-md-toggle=drawer id=__drawer type=checkbox> <input autocomplete=off class=md-toggle data-md-toggle=search id=__search type=checkbox> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a class=md-skip href=#installation> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav aria-label=Header class="md-header-nav md-grid"> <a aria-label=Pyomeca class="md-header-nav__button md-logo" href=https://pyomeca.github.io title=Pyomeca> <img alt=logo src=../images/logo.svg> </a> <label class="md-header-nav__button md-icon" for=__drawer> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg> </label> <div class=md-header-nav__title data-md-component=header-title> <div class=md-header-nav__ellipsis> <span class="md-header-nav__topic md-ellipsis"> Pyomeca </span> <span class="md-header-nav__topic md-ellipsis"> Getting Started </span> </div> </div> <label class="md-header-nav__button md-icon" for=__search> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input aria-label=Search autocapitalize=off autocomplete=off autocorrect=off class=md-search__input data-md-component=search-query data-md-state=active name=query placeholder=Search spellcheck=false type=text> <label class="md-search__icon md-icon" for=__search> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </label> <button aria-label=Clear class="md-search__icon md-icon" data-md-component=search-reset tabindex=-1 type=reset> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header-nav__source> <a class=md-source href=https://github.com/pyomeca/pyomeca/ title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg> </div> <div class=md-source__repository> pyomeca/pyomeca </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav aria-label=Navigation class="md-nav md-nav--primary" data-md-level=0> <label class=md-nav__title for=__drawer> <a aria-label=Pyomeca class="md-nav__button md-logo" href=https://pyomeca.github.io title=Pyomeca> <img alt=logo src=../images/logo.svg> </a> Pyomeca </label> <div class=md-nav__source> <a class=md-source href=https://github.com/pyomeca/pyomeca/ title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg> </div> <div class=md-source__repository> pyomeca/pyomeca </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=.. title=Home> Home </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../overview/ title=Overview> Overview </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc id=__toc type=checkbox> <label class="md-nav__link md-nav__link--active" for=__toc> Getting Started <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg> </span> </label> <a class="md-nav__link md-nav__link--active" href=./ title="Getting Started"> Getting Started </a> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=#installation> Installation </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#quick-overview> Quick overview </a> <nav aria-label="Quick overview" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#object-creation> Object creation </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#indexing> Indexing </a> <nav aria-label=Indexing class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#positional-indexing> Positional indexing </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#label-based-indexing> Label-based indexing </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#metadata> Metadata </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#computation> Computation </a> <nav aria-label=Computation class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#arithmetic> Arithmetic </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#application-exploring-missing-values> Application: exploring missing values </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#application-electromyographic-pipeline> Application: electromyographic pipeline </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#datasets> Datasets </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#file-io> File IO </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-4 id=nav-4 type=checkbox> <label class=md-nav__link for=nav-4> User Guide <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg> </span> </label> <nav aria-label="User Guide" class=md-nav data-md-level=1> <label class=md-nav__title for=nav-4> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </span> User Guide </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=../object-creation/ title="Object creation"> Object creation </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../data-processing/ title="Data processing"> Data processing </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=../contributing/ title=Contributing> Contributing </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../about/ title=About> About </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-7 id=nav-7 type=checkbox> <label class=md-nav__link for=nav-7> API reference <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg> </span> </label> <nav aria-label="API reference" class=md-nav data-md-level=1> <label class=md-nav__title for=nav-7> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </span> API reference </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=../api/analogs/ title=Analogs> Analogs </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../api/angles/ title=Angles> Angles </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../api/markers/ title=Markers> Markers </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../api/dataarray_accessor/ title=DataArray_accessor> DataArray_accessor </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../api/rototrans/ title=Rototrans> Rototrans </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=#installation> Installation </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#quick-overview> Quick overview </a> <nav aria-label="Quick overview" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#object-creation> Object creation </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#indexing> Indexing </a> <nav aria-label=Indexing class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#positional-indexing> Positional indexing </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#label-based-indexing> Label-based indexing </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#metadata> Metadata </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#computation> Computation </a> <nav aria-label=Computation class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#arithmetic> Arithmetic </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#application-exploring-missing-values> Application: exploring missing values </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#application-electromyographic-pipeline> Application: electromyographic pipeline </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#datasets> Datasets </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#file-io> File IO </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a class="md-content__button md-icon" href=https://github.com/pyomeca/pyomeca/edit/master/docs/getting-started.md title="Edit this page"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg> </a> <h1>Getting Started</h1> <h2 id=installation>Installation</h2> <p>Before you can use pyomeca, you will need to get it installed. Pyomeca itself is a pure Python package, but its dependencies are not. The easiest way to get everything installed is to use <a href=https://conda.io/en/latest/miniconda.html>conda</a>.</p> <p>To install pyomeca with its recommended dependencies using the conda command line tool:</p> <p><div class=highlight><pre><span></span><code>conda install -c conda-forge pyomeca
+</code></pre></div> Now that you have installed pyomeca, you should be able to import it:</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>pyomeca</span>
+</code></pre></div> <div class="admonition note"> <p class=admonition-title>Note</p> <p>Want to test pyomeca from your browser and without installing anything? Try out our binder server: <a href="https://mybinder.org/v2/gh/pyomeca/pyomeca/master?filepath=notebooks"><img alt=Binder src=https://mybinder.org/badge_logo.svg></a></p> </div> <h2 id=quick-overview>Quick overview</h2> <p>Here is a short introduction to xarray and pyomeca, geared mainly for new users. You should be able to follow along and complete this short example in about 10 minutes.</p> <p>We will carry out common tasks in biomechanics, including reading files, manipulating and processing data, making figures and writing files.</p> <h3 id=object-creation>Object creation</h3> <p>Let's begin by creating a biomechanical data structure with pyomeca. In this tutorial, we will analyze the skin marker data available in this <a href=https://github.com/pyomeca/pyomeca/blob/master/tests/data/markers_analogs.c3d><code>c3d file</code></a>.</p> <p>Pyomeca provides the <code>from_c3d</code> function to read <code>c3d</code> files. As we want to analyse markers data, we will use the <code>Markers</code> class:</p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Markers</span>
+
+<span class=n>data_path</span> <span class=o>=</span> <span class=s2>"../tests/data/markers_analogs.c3d"</span>
+<span class=n>markers</span> <span class=o>=</span> <span class=n>Markers</span><span class=o>.</span><span class=n>from_c3d</span><span class=p>(</span><span class=n>data_path</span><span class=p>,</span> <span class=n>prefix_delimiter</span><span class=o>=</span><span class=s2>":"</span><span class=p>)</span>
+</code></pre></div> <p>Make sure to always have a check on the data after reading it.</p> <p>When used in <a href=https://jupyter.org/ >Jupyter notebooks</a>, data can be explored interactively. A standard text representation is available otherwise.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span>
+</code></pre></div> <pre class=nb-output><code><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id=icon-database viewbox="0 0 32 32">
+<title>Show/Hide data repr</title>
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id=icon-file-text2 viewbox="0 0 32 32">
+<title>Show/Hide attributes</title>
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+.xr-wrap {
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><div class=xr-wrap><div class=xr-header><div class=xr-obj-type>xarray.DataArray</div><div class=xr-array-name>'markers'</div><ul class=xr-dim-list><li><span class=xr-has-index>axis</span>: 4</li><li><span class=xr-has-index>channel</span>: 51</li><li><span class=xr-has-index>time</span>: 580</li></ul></div><ul class=xr-sections><li class=xr-section-item><div class=xr-array-wrap><input class=xr-array-in id=section-771142f5-a372-4807-8814-d861d8df5a55 type=checkbox><label for=section-771142f5-a372-4807-8814-d861d8df5a55 title="Show/hide data repr"><svg class="icon xr-icon-database"><use xlink:href=#icon-database></use></svg></label><div class="xr-array-preview xr-preview"><span>44.16 44.17 44.16 44.17 44.17 44.19 44.2 ... 1.0 1.0 1.0 1.0 1.0 1.0</span></div><pre class=xr-array-data>array([[[  44.16278839,   44.16666412,   44.16487122, ...,
+           99.22426605,   99.24201965,   99.25963593],
+        [  32.57229614,   32.57104111,   32.56489563, ...,
+           87.51286316,   87.52822876,   87.54118347],
+        [ -93.72181702,  -93.72447968,  -93.72324371, ...,
+          -41.1590271 ,  -41.14812851,  -41.12734985],
+        ...,
+        [ 562.26068115,  562.41027832,  562.56695557, ...,
+          625.63555908,  625.98504639,  626.25811768],
+        [ 568.24200439,  568.37792969,  568.49249268, ...,
+          624.18139648,  624.51190186,  624.78894043],
+        [ 568.44470215,  568.52038574,  568.59216309, ...,
+          623.09222412,  623.44036865,  623.75152588]],
+
+       [[-276.86193848, -276.86169434, -276.86407471, ...,
+         -259.15292358, -259.16690063, -259.17092896],
+        [-243.14048767, -243.14073181, -243.13331604, ...,
+         -225.44718933, -225.45556641, -225.46226501],
+        [ 124.78598022,  124.78731537,  124.78870392, ...,
+          141.820755  ,  141.80741882,  141.80308533],
+        ...,
+        [ 638.35144043,  638.4241333 ,  638.50653076, ...,
+          592.00372314,  592.15686035,  592.27819824],
+        [ 626.79144287,  626.86114502,  626.90710449, ...,
+          584.15661621,  584.27709961,  584.38830566],
+        [ 651.37927246,  651.45532227,  651.49957275, ...,
+          610.59655762,  610.72821045,  610.84472656]],
+
+       [[ 675.69683838,  675.69873047,  675.6986084 , ...,
+          903.97650146,  903.96801758,  903.980896  ],
+        [ 676.57452393,  676.58099365,  676.57720947, ...,
+          904.61694336,  904.61645508,  904.63104248],
+        [ 674.27874756,  674.27947998,  674.28033447, ...,
+          902.77349854,  902.77819824,  902.78143311],
+        ...,
+        [  81.34425354,   81.32899475,   81.2776413 , ...,
+           53.45215607,   53.57727814,   53.72877121],
+        [ 110.84020996,  110.81329346,  110.76582336, ...,
+           83.92819214,   84.07093048,   84.20204163],
+        [ 129.69673157,  129.6789856 ,  129.62939453, ...,
+           99.39131165,   99.52735138,   99.68258667]],
+
+       [[   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        ...,
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ]]])</pre></div></li><li class=xr-section-item><input checked class=xr-section-summary-in id=section-07d9fbda-a261-435e-9ebb-75e8526b9b21 type=checkbox><label class=xr-section-summary for=section-07d9fbda-a261-435e-9ebb-75e8526b9b21>Coordinates: <span>(3)</span></label><div class=xr-section-inline-details></div><div class=xr-section-details><ul class=xr-var-list><li class=xr-var-item><div class=xr-var-name><span class=xr-has-index>axis</span></div><div class=xr-var-dims>(axis)</div><div class=xr-var-dtype>&lt;U4</div><div class="xr-var-preview xr-preview">'x' 'y' 'z' 'ones'</div><input class=xr-var-attrs-in disabled id=attrs-dd7510aa-b3c1-4f76-bc58-a9b214b0241f type=checkbox><label for=attrs-dd7510aa-b3c1-4f76-bc58-a9b214b0241f title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href=#icon-file-text2></use></svg></label><input class=xr-var-data-in id=data-3e3b2b44-07a9-4a72-abb3-aa0731fa4ee9 type=checkbox><label for=data-3e3b2b44-07a9-4a72-abb3-aa0731fa4ee9 title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href=#icon-database></use></svg></label><div class=xr-var-attrs><dl class=xr-attrs></dl></div><pre class=xr-var-data>array(['x', 'y', 'z', 'ones'], dtype='&lt;U4')</pre></li><li class=xr-var-item><div class=xr-var-name><span class=xr-has-index>channel</span></div><div class=xr-var-dims>(channel)</div><div class=xr-var-dtype>&lt;U14</div><div class="xr-var-preview xr-preview">'gauche_ext' ... 'LATH'</div><input class=xr-var-attrs-in disabled id=attrs-0d5041f3-e208-406f-a8be-0e47f6069033 type=checkbox><label for=attrs-0d5041f3-e208-406f-a8be-0e47f6069033 title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href=#icon-file-text2></use></svg></label><input class=xr-var-data-in id=data-e928fff6-a058-49ba-979f-b942acb6e3b9 type=checkbox><label for=data-e928fff6-a058-49ba-979f-b942acb6e3b9 title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href=#icon-database></use></svg></label><div class=xr-var-attrs><dl class=xr-attrs></dl></div><pre class=xr-var-data>array(['gauche_ext', 'gauche_int', 'droite_int', 'droite_ext', 'avant_gauche',
+       'avant_droit', 'arriere_droit', 'arriere_gauche', 'ASISr', 'ASISl',
+       'PSISr', 'PSISl', 'STERr', 'STERl', 'STER', 'XIPH', 'T1', 'T10',
+       'CLAV_SC', 'CLAVm', 'CLAV_ant', 'CLAV_post', 'CLAVl', 'CLAV_AC',
+       'ACRO_tip', 'SCAP_AA', 'SCAPl', 'SCAPm', 'SCAP_CP', 'SCAP_RS',
+       'SCAP_SA', 'SCAP_IA', 'DELT', 'ARMl', 'ARMm', 'ARMp_up', 'ARMp_do',
+       'EPICl', 'EPICm', 'LARMm', 'LARMl', 'LARM_elb', 'LARM_ant', 'STYLr',
+       'STYLr_up', 'STYLu', 'WRIST', 'INDEX', 'LASTC', 'MEDH', 'LATH'],
+      dtype='&lt;U14')</pre></li><li class=xr-var-item><div class=xr-var-name><span class=xr-has-index>time</span></div><div class=xr-var-dims>(time)</div><div class=xr-var-dtype>float64</div><div class="xr-var-preview xr-preview">0.0 0.01 0.02 ... 5.77 5.78 5.79</div><input class=xr-var-attrs-in disabled id=attrs-07977799-1023-493d-8df4-3128fb4206bd type=checkbox><label for=attrs-07977799-1023-493d-8df4-3128fb4206bd title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href=#icon-file-text2></use></svg></label><input class=xr-var-data-in id=data-ec4e9e04-de1b-45d1-8b33-f6163279d802 type=checkbox><label for=data-ec4e9e04-de1b-45d1-8b33-f6163279d802 title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href=#icon-database></use></svg></label><div class=xr-var-attrs><dl class=xr-attrs></dl></div><pre class=xr-var-data>array([0.  , 0.01, 0.02, ..., 5.77, 5.78, 5.79])</pre></li></ul></div></li><li class=xr-section-item><input checked class=xr-section-summary-in id=section-aa93bb14-da2f-4803-b7ed-6ca2533b835f type=checkbox><label class=xr-section-summary for=section-aa93bb14-da2f-4803-b7ed-6ca2533b835f>Attributes: <span>(4)</span></label><div class=xr-section-inline-details></div><div class=xr-section-details><dl class=xr-attrs><dt><span>first_frame :</span></dt><dd>0</dd><dt><span>last_frame :</span></dt><dd>579</dd><dt><span>rate :</span></dt><dd>100.0</dd><dt><span>units :</span></dt><dd>mm</dd></dl></div></li></ul></div></div></code></pre> <p>In this case, we have generated a 3D array with the <code>axis</code>, <code>channel</code> and <code>time</code> dimensions.</p> <div class="admonition note"> <p class=admonition-title>Note</p> <p>There are several ways to create objects in pyomeca: by supplying data, from files or from other data-structure. A more complete guide on object creation is available in the <a href=https://pyomeca.github.io/object-creation/ >object creation</a> section of the documentation.</p> </div> <h3 id=indexing>Indexing</h3> <p>Since we have labels associated with each dimension, we have several kinds of indexing available with varying levels of convenience and intuitiveness. Let's see three ways to get the same data (ninth marker and first time frame).</p> <h4 id=positional-indexing>Positional indexing</h4> <p>Indexing directly works just like it does for numpy arrays.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=p>[:,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>0</span><span class=p>]</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'ASISl'
+    time     float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre> <h4 id=label-based-indexing>Label-based indexing</h4> <p>Label-based indexing frees us from having to know how the data are organized. We do not have to rely on dimension order and can use them explicitly to index the data.</p> <p>The <code>isel</code> method is used when the dimension lookup is by name and the index lookup is by integer</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>isel</span><span class=p>(</span><span class=n>channel</span><span class=o>=</span><span class=mi>9</span><span class=p>,</span> <span class=n>time</span><span class=o>=</span><span class=mi>0</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'ASISl'
+    time     float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre> <p>The <code>sel</code> method is used when the dimension and index lookups are both by name.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>channel</span><span class=o>=</span><span class=s2>"ASISl"</span><span class=p>,</span> <span class=n>time</span><span class=o>=</span><span class=mi>0</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'ASISl'
+    time     float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre> <div class="admonition note"> <p class=admonition-title>Note</p> <p>xarray offers extremely flexible indexing routines. For more details on indexing see the <a href=http://xarray.pydata.org/en/stable/indexing.html#indexing>xarray documentation</a>.</p> </div> <h3 id=metadata>Metadata</h3> <p>Biomechanical datasets are usually more than just raw numbers and have various metadata attributes. Some metadata are already filled by pyomeca and available in the <code>attrs</code> Python dictionary.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>attrs</span>
+</code></pre></div> <pre class=nb-output><code> &gt;&gt; {'first_frame': 0, 'last_frame': 579, 'rate': 100.0, 'units': 'mm'}</code></pre> <p>They can be accessed using the standard dictionary indexing</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"rate"</span><span class=p>]</span>
+</code></pre></div> <pre class=nb-output><code> &gt;&gt; 100.0</code></pre> <p>Or directly as a propriety</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>rate</span>
+</code></pre></div> <pre class=nb-output><code> &gt;&gt; 100.0</code></pre> <p>You can assign anything you wish.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"description"</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"Skin marker positions recorded in Montreal."</span>
+<span class=n>markers</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"participant_id"</span><span class=p>]</span> <span class=o>=</span> <span class=mi>12</span>
+<span class=n>markers</span><span class=o>.</span><span class=n>time</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"units"</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"seconds"</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>markers</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, channel: 51, time: 580)&gt;
+array([[[  44.16278839,   44.16666412,   44.16487122, ...,
+           99.22426605,   99.24201965,   99.25963593],
+        [  32.57229614,   32.57104111,   32.56489563, ...,
+           87.51286316,   87.52822876,   87.54118347],
+        [ -93.72181702,  -93.72447968,  -93.72324371, ...,
+          -41.1590271 ,  -41.14812851,  -41.12734985],
+        ...,
+        [ 562.26068115,  562.41027832,  562.56695557, ...,
+          625.63555908,  625.98504639,  626.25811768],
+        [ 568.24200439,  568.37792969,  568.49249268, ...,
+          624.18139648,  624.51190186,  624.78894043],
+        [ 568.44470215,  568.52038574,  568.59216309, ...,
+          623.09222412,  623.44036865,  623.75152588]],
+
+       [[-276.86193848, -276.86169434, -276.86407471, ...,
+         -259.15292358, -259.16690063, -259.17092896],
+        [-243.14048767, -243.14073181, -243.13331604, ...,
+         -225.44718933, -225.45556641, -225.46226501],
+        [ 124.78598022,  124.78731537,  124.78870392, ...,
+          141.820755  ,  141.80741882,  141.80308533],
+        ...,
+        [ 638.35144043,  638.4241333 ,  638.50653076, ...,
+          592.00372314,  592.15686035,  592.27819824],
+        [ 626.79144287,  626.86114502,  626.90710449, ...,
+          584.15661621,  584.27709961,  584.38830566],
+        [ 651.37927246,  651.45532227,  651.49957275, ...,
+          610.59655762,  610.72821045,  610.84472656]],
+
+       [[ 675.69683838,  675.69873047,  675.6986084 , ...,
+          903.97650146,  903.96801758,  903.980896  ],
+        [ 676.57452393,  676.58099365,  676.57720947, ...,
+          904.61694336,  904.61645508,  904.63104248],
+        [ 674.27874756,  674.27947998,  674.28033447, ...,
+          902.77349854,  902.77819824,  902.78143311],
+        ...,
+        [  81.34425354,   81.32899475,   81.2776413 , ...,
+           53.45215607,   53.57727814,   53.72877121],
+        [ 110.84020996,  110.81329346,  110.76582336, ...,
+           83.92819214,   84.07093048,   84.20204163],
+        [ 129.69673157,  129.6789856 ,  129.62939453, ...,
+           99.39131165,   99.52735138,   99.68258667]],
+
+       [[   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        ...,
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ]]])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+  * channel  (channel) &lt;U14 'gauche_ext' 'gauche_int' ... 'MEDH' 'LATH'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 ... 5.75 5.76 5.77 5.78 5.79
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre> <h3 id=computation>Computation</h3> <h4 id=arithmetic>Arithmetic</h4> <p>As the underlying data-structure is a numpy array, xarray data arrays work the same way you would expect if you are used to numpy.</p> <div class=highlight><pre><span></span><code><span class=n>subset</span> <span class=o>=</span> <span class=n>markers</span><span class=p>[:,</span> <span class=mi>0</span><span class=p>,</span> <span class=p>:</span><span class=mi>6</span><span class=p>]</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>subset</span> <span class=o>+</span> <span class=mi>10</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time: 6)&gt;
+array([[  54.16278839,   54.16666412,   54.16487122,   54.16558075,
+          54.17311096,   54.18517685],
+       [-266.86193848, -266.86169434, -266.86407471, -266.86123657,
+        -266.85812378, -266.85818481],
+       [ 685.69683838,  685.69873047,  685.6986084 ,  685.69775391,
+         685.7041626 ,  685.69592285],
+       [  11.        ,   11.        ,   11.        ,   11.        ,
+          11.        ,   11.        ]])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>subset</span><span class=o>.</span><span class=n>T</span>  <span class=c1># transpose</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (time: 6, axis: 4)&gt;
+array([[  44.16278839, -276.86193848,  675.69683838,    1.        ],
+       [  44.16666412, -276.86169434,  675.69873047,    1.        ],
+       [  44.16487122, -276.86407471,  675.6986084 ,    1.        ],
+       [  44.16558075, -276.86123657,  675.69775391,    1.        ],
+       [  44.17311096, -276.85812378,  675.7041626 ,    1.        ],
+       [  44.18517685, -276.85818481,  675.69592285,    1.        ]])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 0.05
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>subset</span><span class=o>.</span><span class=n>mean</span><span class=p>()</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' ()&gt;
+array(111.00187318)
+Coordinates:
+    channel  &lt;U14 'gauche_ext'</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>subset</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16969872, -276.86087545,  675.69866943,    1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'</pre></code></pre> <p>We can, however, take advantage of the labels instead of axis numbers</p> <div class=highlight><pre><span></span><code><span class=n>subset</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>dim</span><span class=o>=</span><span class=s2>"time"</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16969872, -276.86087545,  675.69866943,    1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'</pre></code></pre> <p>Arithmetic operations broadcast based on dimension name. This means you don’t need to insert dummy dimensions for alignment:</p> <div class=highlight><pre><span></span><code><span class=n>only_first_axis</span> <span class=o>=</span> <span class=n>subset</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"x"</span><span class=p>)</span>
+<span class=n>only_first_frame</span> <span class=o>=</span> <span class=n>subset</span><span class=o>.</span><span class=n>isel</span><span class=p>(</span><span class=n>time</span><span class=o>=</span><span class=mi>0</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>only_first_axis</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (time: 6)&gt;
+array([44.16278839, 44.16666412, 44.16487122, 44.16558075, 44.17311096,
+       44.18517685])
+Coordinates:
+    axis     &lt;U4 'x'
+    channel  &lt;U14 'gauche_ext'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 0.05
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>only_first_frame</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16278839, -276.86193848,  675.69683838,    1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'
+    time     float64 0.0
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>only_first_frame</span> <span class=o>+</span> <span class=n>only_first_axis</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time: 6)&gt;
+array([[  88.32557678,   88.32945251,   88.32765961,   88.32836914,
+          88.33589935,   88.34796524],
+       [-232.69915009, -232.69527435, -232.69706726, -232.69635773,
+        -232.68882751, -232.67676163],
+       [ 719.85962677,  719.8635025 ,  719.86170959,  719.86241913,
+         719.86994934,  719.88201523],
+       [  45.16278839,   45.16666412,   45.16487122,   45.16558075,
+          45.17311096,   45.18517685]])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre> <p>Let's compare with the sum made with numpy arrays:</p> <div class=highlight><pre><span></span><code><span class=n>only_first_axis</span><span class=o>.</span><span class=n>values</span> <span class=o>+</span> <span class=n>only_first_axis</span><span class=o>.</span><span class=n>values</span>
+</code></pre></div> <pre class=nb-output><code> &gt;&gt; array([88.32557678, 88.33332825, 88.32974243, 88.3311615 , 88.34622192,
+       88.3703537 ])</code></pre> <p>And we do not need to worry about the order of dimensions.</p> <div class=highlight><pre><span></span><code><span class=n>subset</span> <span class=o>-</span> <span class=n>subset</span><span class=o>.</span><span class=n>T</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time: 6)&gt;
+array([[0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.]])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'
+  * time     (time) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre> <p>Whereas this is not possible with numpy arrays:</p> <div class=highlight><pre><span></span><code>subset.values - subset.values.T
+</code></pre></div> <div class=highlight><pre><span></span><code>&gt;&gt; ValueError: operands could not be broadcast together with shapes (4,6) (6,4) 
+</code></pre></div> <div class="admonition note"> <p class=admonition-title>Note</p> <p>xarray supports powerful shortcuts for computation. For more, see the <a href=http://xarray.pydata.org/en/stable/computation.html#comput>xarray documentation</a>.</p> </div> <h4 id=application-exploring-missing-values>Application: exploring missing values</h4> <p>When we visualize some of our markers, we can realize that there are some missing values.</p> <div class=highlight><pre><span></span><code><span class=n>markers</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"x"</span><span class=p>,</span> <span class=n>channel</span><span class=o>=</span><span class=s2>"SCAP_CP"</span><span class=p>)</span><span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>line</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_49_0.svg></p> <p>Let's investigate those missing values</p> <div class=highlight><pre><span></span><code><span class=n>markers_null_values</span> <span class=o>=</span> <span class=n>markers</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"x"</span><span class=p>)</span><span class=o>.</span><span class=n>isnull</span><span class=p>()</span>
+<span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"There are </span><span class=si>{</span><span class=n>markers_null_values</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span><span class=o>.</span><span class=n>values</span><span class=si>}</span><span class=s2> missing values"</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code> &gt;&gt; There are 305 missing values
+</code></pre> <p>What are the 5 markers with the most missing values?</p> <div class=highlight><pre><span></span><code><span class=n>markers_null_values</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>dim</span><span class=o>=</span><span class=s2>"time"</span><span class=p>)</span><span class=o>.</span><span class=n>to_series</span><span class=p>()</span><span class=o>.</span><span class=n>nlargest</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>barh</span><span class=p>()</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_53_0.svg></p> <p>The cumulative number of missing values can tell us when marker occlusions occur.</p> <div class=highlight><pre><span></span><code><span class=n>markers_null_values</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=s2>"channel"</span><span class=p>)</span><span class=o>.</span><span class=n>cumsum</span><span class=p>(</span><span class=s2>"time"</span><span class=p>)</span><span class=o>.</span><span class=n>plot</span><span class=p>()</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_55_0.svg></p> <p>Now that we know more about the missing values, we can use xarray for filling missing values via 1D interpolation.</p> <div class=highlight><pre><span></span><code><span class=n>markers_without_null</span> <span class=o>=</span> <span class=n>markers</span><span class=o>.</span><span class=n>interpolate_na</span><span class=p>(</span><span class=n>dim</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>method</span><span class=o>=</span><span class=s2>"cubic"</span><span class=p>)</span>
+</code></pre></div> <p>Now, let's visualize our interpolated markers.</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+
+<span class=n>markers</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"x"</span><span class=p>,</span> <span class=n>channel</span><span class=o>=</span><span class=s2>"SCAP_CP"</span><span class=p>)</span><span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>line</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>)</span>
+<span class=p>(</span>
+    <span class=n>markers_without_null</span><span class=o>.</span><span class=n>where</span><span class=p>(</span><span class=n>markers</span><span class=o>.</span><span class=n>isnull</span><span class=p>())</span>
+    <span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"x"</span><span class=p>,</span> <span class=n>channel</span><span class=o>=</span><span class=s2>"SCAP_CP"</span><span class=p>)</span>
+    <span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>line</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=s2>"interpolated"</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s2>"r"</span><span class=p>)</span>
+<span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_59_0.svg></p> <div class=highlight><pre><span></span><code><span class=p>(</span>
+    <span class=n>markers_without_null</span><span class=o>.</span><span class=n>drop_sel</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=s2>"ones"</span><span class=p>)</span>  <span class=c1># drop the axis with only ones</span>
+    <span class=o>.</span><span class=n>isel</span><span class=p>(</span><span class=n>channel</span><span class=o>=</span><span class=nb>slice</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>  <span class=c1># select some markers</span>
+    <span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>line</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>col</span><span class=o>=</span><span class=s2>"channel"</span><span class=p>,</span> <span class=n>hue</span><span class=o>=</span><span class=s2>"axis"</span><span class=p>,</span> <span class=n>col_wrap</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>  <span class=c1># plot the data</span>
+<span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_60_0.svg></p> <h4 id=application-electromyographic-pipeline>Application: electromyographic pipeline</h4> <p>Pyomeca implements specialized functionalities commonly used in biomechanics.</p> <p>As an example, let's process the electromyographic data contained in our <code>c3d</code> file.</p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>pyomeca</span> <span class=kn>import</span> <span class=n>Analogs</span>
+
+<span class=n>muscles</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=s2>"Delt_ant"</span><span class=p>,</span>
+    <span class=s2>"Delt_med"</span><span class=p>,</span>
+    <span class=s2>"Delt_post"</span><span class=p>,</span>
+    <span class=s2>"Supra"</span><span class=p>,</span>
+    <span class=s2>"Infra"</span><span class=p>,</span>
+    <span class=s2>"Subscap"</span><span class=p>,</span>
+<span class=p>]</span>
+<span class=n>emg</span> <span class=o>=</span> <span class=n>Analogs</span><span class=o>.</span><span class=n>from_c3d</span><span class=p>(</span><span class=n>data_path</span><span class=p>,</span> <span class=n>suffix_delimiter</span><span class=o>=</span><span class=s2>"."</span><span class=p>,</span> <span class=n>usecols</span><span class=o>=</span><span class=n>muscles</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>emg</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>col</span><span class=o>=</span><span class=s2>"channel"</span><span class=p>,</span> <span class=n>col_wrap</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_63_0.svg></p> <div class=highlight><pre><span></span><code><span class=n>emg_processed</span> <span class=o>=</span> <span class=p>(</span>
+    <span class=n>emg</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>band_pass</span><span class=p>(</span><span class=n>order</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>cutoff</span><span class=o>=</span><span class=p>[</span><span class=mi>10</span><span class=p>,</span> <span class=mi>425</span><span class=p>])</span>
+    <span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>center</span><span class=p>()</span>
+    <span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>abs</span><span class=p>()</span>
+    <span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>low_pass</span><span class=p>(</span><span class=n>order</span><span class=o>=</span><span class=mi>4</span><span class=p>,</span> <span class=n>cutoff</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span> <span class=n>freq</span><span class=o>=</span><span class=n>emg</span><span class=o>.</span><span class=n>rate</span><span class=p>)</span>
+    <span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>normalize</span><span class=p>()</span>
+<span class=p>)</span>
+
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>col</span><span class=o>=</span><span class=s2>"channel"</span><span class=p>,</span> <span class=n>col_wrap</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_64_0.svg></p> <p>By updating the metadata (<code>attrs</code> dictionary), we can update the name and units on our plots.</p> <div class=highlight><pre><span></span><code><span class=n>emg_processed</span><span class=o>.</span><span class=n>name</span> <span class=o>=</span> <span class=s2>"EMG"</span>
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"units"</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"%"</span>
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>time</span><span class=o>.</span><span class=n>attrs</span><span class=p>[</span><span class=s2>"units"</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"seconds"</span>
+
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s2>"time"</span><span class=p>,</span> <span class=n>col</span><span class=o>=</span><span class=s2>"channel"</span><span class=p>,</span> <span class=n>col_wrap</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_66_0.svg></p> <div class=highlight><pre><span></span><code><span class=n>fig</span><span class=p>,</span> <span class=n>axes</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplots</span><span class=p>(</span><span class=n>ncols</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>4</span><span class=p>))</span>
+
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=s2>"channel"</span><span class=p>)</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>ax</span><span class=o>=</span><span class=n>axes</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+<span class=n>axes</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>set_title</span><span class=p>(</span><span class=s2>"Mean EMG activation"</span><span class=p>)</span>
+
+<span class=n>emg_processed</span><span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>hist</span><span class=p>(</span><span class=n>ax</span><span class=o>=</span><span class=n>axes</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>bins</span><span class=o>=</span><span class=mi>50</span><span class=p>)</span>
+<span class=n>axes</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>set_title</span><span class=p>(</span><span class=s2>"EMG activation distribution"</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_67_0.svg></p> <p>By converting the data array to a pandas dataframe, we can further extend the possibilities:</p> <div class=highlight><pre><span></span><code><span class=n>emg_dataframe</span> <span class=o>=</span> <span class=n>emg_processed</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>to_wide_dataframe</span><span class=p>()</span>
+<span class=n>emg_dataframe</span><span class=o>.</span><span class=n>plot</span><span class=o>.</span><span class=n>box</span><span class=p>(</span><span class=n>showfliers</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</code></pre></div> <p><img alt=svg src=../getting-started_files/getting-started_69_0.svg></p> <div class=highlight><pre><span></span><code><span class=n>emg_dataframe</span><span class=o>.</span><span class=n>corr</span><span class=p>()</span><span class=o>.</span><span class=n>style</span><span class=o>.</span><span class=n>background_gradient</span><span class=p>()</span><span class=o>.</span><span class=n>set_precision</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><style type=text/css>
+    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col0 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col1 {
+            background-color:  #e9e5f1;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col2 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col3 {
+            background-color:  #b5c4df;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col4 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col5 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col0 {
+            background-color:  #308cbe;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col1 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col2 {
+            background-color:  #3790c0;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col3 {
+            background-color:  #b5c4df;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col4 {
+            background-color:  #9ebad9;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col5 {
+            background-color:  #0872b1;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col0 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col1 {
+            background-color:  #efe9f3;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col2 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col3 {
+            background-color:  #fcf4fa;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col4 {
+            background-color:  #e2dfee;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col5 {
+            background-color:  #3f93c2;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col0 {
+            background-color:  #4c99c5;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col1 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col2 {
+            background-color:  #a1bbda;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col3 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col4 {
+            background-color:  #faf2f8;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col5 {
+            background-color:  #a7bddb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col0 {
+            background-color:  #afc1dd;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col1 {
+            background-color:  #f5eff6;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col2 {
+            background-color:  #84b0d3;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col3 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col4 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col5 {
+            background-color:  #88b1d4;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col0 {
+            background-color:  #abbfdc;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col1 {
+            background-color:  #4094c3;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col2 {
+            background-color:  #0570b0;
+            color:  #f1f1f1;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col3 {
+            background-color:  #abbfdc;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col4 {
+            background-color:  #83afd3;
+            color:  #000000;
+        }    #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col5 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }</style><table id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9><thead>    <tr>        <th class="index_name level0">channel</th>        <th class="col_heading level0 col0">Delt_ant</th>        <th class="col_heading level0 col1">Delt_med</th>        <th class="col_heading level0 col2">Delt_post</th>        <th class="col_heading level0 col3">Infra</th>        <th class="col_heading level0 col4">Subscap</th>        <th class="col_heading level0 col5">Supra</th>    </tr>    <tr>        <th class="index_name level0">channel</th>        <th class=blank></th>        <th class=blank></th>        <th class=blank></th>        <th class=blank></th>        <th class=blank></th>        <th class=blank></th>    </tr></thead><tbody>
+                <tr>
+                        <th class="row_heading level0 row0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row0>Delt_ant</th>
+                        <td class="data row0 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col0>1.0</td>
+                        <td class="data row0 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col1>0.78</td>
+                        <td class="data row0 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col2>0.38</td>
+                        <td class="data row0 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col3>0.74</td>
+                        <td class="data row0 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col4>0.6</td>
+                        <td class="data row0 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col5>0.6</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row1>Delt_med</th>
+                        <td class="data row1 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col0>0.78</td>
+                        <td class="data row1 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col1>1.0</td>
+                        <td class="data row1 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col2>0.77</td>
+                        <td class="data row1 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col3>0.74</td>
+                        <td class="data row1 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col4>0.76</td>
+                        <td class="data row1 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row1_col5>0.9</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row2>Delt_post</th>
+                        <td class="data row2 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col0>0.38</td>
+                        <td class="data row2 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col1>0.77</td>
+                        <td class="data row2 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col2>1.0</td>
+                        <td class="data row2 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col3>0.62</td>
+                        <td class="data row2 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col4>0.67</td>
+                        <td class="data row2 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row2_col5>0.84</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row3>Infra</th>
+                        <td class="data row3 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col0>0.74</td>
+                        <td class="data row3 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col1>0.74</td>
+                        <td class="data row3 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col2>0.62</td>
+                        <td class="data row3 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col3>1.0</td>
+                        <td class="data row3 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col4>0.61</td>
+                        <td class="data row3 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row3_col5>0.75</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row4>Subscap</th>
+                        <td class="data row4 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col0>0.6</td>
+                        <td class="data row4 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col1>0.76</td>
+                        <td class="data row4 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col2>0.67</td>
+                        <td class="data row4 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col3>0.61</td>
+                        <td class="data row4 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col4>1.0</td>
+                        <td class="data row4 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row4_col5>0.78</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9level0_row5>Supra</th>
+                        <td class="data row5 col0" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col0>0.6</td>
+                        <td class="data row5 col1" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col1>0.9</td>
+                        <td class="data row5 col2" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col2>0.84</td>
+                        <td class="data row5 col3" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col3>0.75</td>
+                        <td class="data row5 col4" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col4>0.78</td>
+                        <td class="data row5 col5" id=T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row5_col5>1.0</td>
+            </tr>
+    </tbody></table></code></pre> <div class="admonition note"> <p class=admonition-title>Note</p> <p>For more details, see the <a href=https://pyomeca.github.io/data-processing/ >data processing</a> section of the documentation.</p> </div> <h3 id=datasets>Datasets</h3> <p>Datasets are a useful xarray feature to store multiple data arrays with common dimensions</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>xarray</span> <span class=k>as</span> <span class=nn>xr</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>trials</span> <span class=o>=</span> <span class=n>xr</span><span class=o>.</span><span class=n>Dataset</span><span class=p>(</span>
+    <span class=p>{</span>
+        <span class=s2>"trial 1"</span><span class=p>:</span> <span class=n>emg</span><span class=p>,</span>
+        <span class=s2>"trial 2"</span><span class=p>:</span> <span class=n>emg</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(),</span>
+        <span class=s2>"trial 3"</span><span class=p>:</span> <span class=n>emg</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(),</span>
+    <span class=p>}</span>
+<span class=p>)</span>
+<span class=n>trials</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:  (channel: 6, time: 11600)
+Coordinates:
+  * channel  (channel) &lt;U9 'Delt_ant' 'Delt_med' ... 'Infra' 'Subscap'
+  * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
+Data variables:
+    trial 1  (channel, time) float64 -2.609e-05 -2.544e-05 ... 3.04e-05
+    trial 2  (channel, time) float64 -5.21e-06 -5.081e-06 ... 6.071e-06
+    trial 3  (channel, time) float64 -1.355e-05 -1.321e-05 ... 1.578e-05</pre></code></pre> <p>We can still access the individual data arrays</p> <div class=highlight><pre><span></span><code><span class=n>trials</span><span class=p>[</span><span class=s2>"trial 1"</span><span class=p>]</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'trial 1' (channel: 6, time: 11600)&gt;
+array([[-2.60891229e-05, -2.54411752e-05, -2.45576939e-05, ...,
+        -1.93931046e-05, -1.97550762e-05, -1.91258678e-05],
+       [-4.02107289e-05, -6.80835801e-05, -8.64052563e-05, ...,
+         4.98310801e-05,  4.22991216e-05,  3.81295613e-05],
+       [-1.36110339e-05, -1.32793148e-05, -1.27393068e-05, ...,
+        -2.54613460e-05, -2.30687110e-05, -1.89858001e-05],
+       [ 2.97530321e-04,  1.55170274e-04,  3.52776406e-05, ...,
+        -2.58133630e-04, -4.46292252e-04, -5.75785409e-04],
+       [ 2.23239495e-05,  2.26500360e-05,  2.28447316e-05, ...,
+         8.95366975e-06, -3.41701161e-06,  1.05170475e-05],
+       [ 2.87022194e-05,  2.90283060e-05,  2.90723892e-05, ...,
+         2.92962086e-05,  2.90890512e-05,  3.03986035e-05]])
+Coordinates:
+  * channel  (channel) &lt;U9 'Delt_ant' 'Delt_med' ... 'Infra' 'Subscap'
+  * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
+Attributes:
+    first_frame:  0
+    last_frame:   11580
+    rate:         2000.0
+    units:        V</pre></code></pre> <p>While being able to do indexing and computation on the whole dataset</p> <div class=highlight><pre><span></span><code><span class=n>trials</span><span class=o>.</span><span class=n>sel</span><span class=p>(</span><span class=n>channel</span><span class=o>=</span><span class=s2>"Infra"</span><span class=p>)</span> <span class=o>+</span> <span class=mi>100</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:  (time: 11600)
+Coordinates:
+    channel  &lt;U9 'Infra'
+  * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
+Data variables:
+    trial 1  (time) float64 100.0 100.0 100.0 100.0 ... 100.0 100.0 100.0 100.0
+    trial 2  (time) float64 100.0 100.0 100.0 100.0 ... 100.0 100.0 100.0 100.0
+    trial 3  (time) float64 100.0 100.0 100.0 100.0 ... 100.0 100.0 100.0 100.0</pre></code></pre> <div class="admonition note"> <p class=admonition-title>Note</p> <p>If you are processing large amount of data, you can leverage <a href=https://dask.org/ >Dask</a> to support parallel computations. Dask divides large amount of data into manageable chunks and represents parallel computations with task graphs that are executed either on your laptop or on a large cluster of machines. Xarray has built-in support for dask on both <code>DataArray</code> and <code>Dataset</code>. To see examples and use cases, check out the <a href=http://xarray.pydata.org/en/stable/dask.html>xarray documentation</a>.</p> </div> <h3 id=file-io>File IO</h3> <p>NetCDF is the recommended file format to save and share xarray objects.</p> <div class=highlight><pre><span></span><code><span class=n>emg</span><span class=o>.</span><span class=n>to_netcdf</span><span class=p>(</span><span class=s2>"emg.nc"</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>xr</span><span class=o>.</span><span class=n>open_dataarray</span><span class=p>(</span><span class=s2>"emg.nc"</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.DataArray 'analogs' (channel: 6, time: 11600)&gt;
+array([[-2.608912e-05, -2.544118e-05, -2.455769e-05, ..., -1.939310e-05,
+        -1.975508e-05, -1.912587e-05],
+       [-4.021073e-05, -6.808358e-05, -8.640526e-05, ...,  4.983108e-05,
+         4.229912e-05,  3.812956e-05],
+       [-1.361103e-05, -1.327931e-05, -1.273931e-05, ..., -2.546135e-05,
+        -2.306871e-05, -1.898580e-05],
+       [ 2.975303e-04,  1.551703e-04,  3.527764e-05, ..., -2.581336e-04,
+        -4.462923e-04, -5.757854e-04],
+       [ 2.232395e-05,  2.265004e-05,  2.284473e-05, ...,  8.953670e-06,
+        -3.417012e-06,  1.051705e-05],
+       [ 2.870222e-05,  2.902831e-05,  2.907239e-05, ...,  2.929621e-05,
+         2.908905e-05,  3.039860e-05]])
+Coordinates:
+  * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
+  * channel  (channel) object 'Delt_ant' 'Delt_med' ... 'Infra' 'Subscap'
+Attributes:
+    first_frame:  0
+    last_frame:   11580
+    rate:         2000.0
+    units:        V</pre></code></pre> <div class=highlight><pre><span></span><code><span class=n>trials</span><span class=o>.</span><span class=n>to_netcdf</span><span class=p>(</span><span class=s2>"trials.nc"</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>xr</span><span class=o>.</span><span class=n>open_dataset</span><span class=p>(</span><span class=s2>"trials.nc"</span><span class=p>)</span>
+</code></pre></div> <pre class=nb-output><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:  (channel: 6, time: 11600)
+Coordinates:
+  * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
+  * channel  (channel) object 'Delt_ant' 'Delt_med' ... 'Infra' 'Subscap'
+Data variables:
+    trial 1  (channel, time) float64 ...
+    trial 2  (channel, time) float64 ...
+    trial 3  (channel, time) float64 ...</pre></code></pre> <p>Pyomeca implements function to read various file format commonly used in biomechanics such as <code>c3d</code>, <code>csv</code>, <code>xlsx</code>, <code>sto</code>, <code>trc</code> and <code>mot</code>.</p> <p>Users can also write Matlab and csv files.</p> <div class=highlight><pre><span></span><code><span class=n>emg</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>to_matlab</span><span class=p>(</span><span class=s2>"emg.mat"</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>emg</span><span class=o>.</span><span class=n>meca</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=s2>"emg.csv"</span><span class=p>)</span>
+</code></pre></div> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav aria-label=Footer class="md-footer-nav__inner md-grid"> <a class="md-footer-nav__link md-footer-nav__link--prev" href=../overview/ rel=prev title=Overview> <div class="md-footer-nav__button md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg> </div> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> Previous </span> Overview </div> </div> </a> <a class="md-footer-nav__link md-footer-nav__link--next" href=../object-creation/ rel=next title="Object creation"> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> Next </span> Object creation </div> </div> <div class="md-footer-nav__button md-icon"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright © 2019 Romain Martinez </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ rel=noopener target=_blank> Material for MkDocs </a> </div> <div class=md-footer-social> <a class=md-footer-social__link href=https://github.com/romainmartinez rel=noopener target=_blank title=github.com> <svg viewbox="0 0 496 512" xmlns=http://www.w3.org/2000/svg><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> </div> </div> </div> </footer> </div> <script src=../assets/javascripts/vendor.d710d30a.min.js></script> <script src=../assets/javascripts/bundle.4a5ba8d6.min.js></script><script id=__lang type=application/json>{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script> <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.9b3611bd.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script> </body> </html>
